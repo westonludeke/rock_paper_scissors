@@ -7,28 +7,34 @@
 
 <script type="text/javascript">
 // Tracker to count number of rounds played.
-count = 0
+//count = 0
 //alert("Welcome to Rock, Paper, Scissors! Be sure to open the Dev Console to see results.")
 
-// List of options for the computer
-var selectionList = ["Rock", "Paper", "Scissors"]
-// Randomizing the computer's selections
-var randomItem = selectionList[Math.floor(Math.random()*selectionList.length)];
-// Player's selection
-function playerSelection(){
-  var choice = prompt("Do you select rock, paper, or scissors?")
-  console.log("You have selected " + choice);
-  count += 1
+for (count = 1; count < 6; count++) {
+  // List of options for the computer
+  var selectionList = ["Rock", "Paper", "Scissors"]
+  // Randomizing the computer's selections
+  var randomItem = selectionList[Math.floor(Math.random()*selectionList.length)];
+  // Player's selection
+  function playerSelection(){
+    var choice = prompt("Do you select rock, paper, or scissors?")
+    console.log("You have selected: " + choice.toLowerCase());
+    //count += 1
+  }
+  // Computer's selection
+  function computerSelection(){
+    console.log("The computer selected: " + randomItem.toLowerCase());
+  }
+  // Calling the selection functions
+  playerSelection()
+  computerSelection()
+  // Logging the number of rounds that have been played.
+  if (count == 1) {
+    console.log("You have played " + count + " round of RPS.");
+  } else {
+    console.log("You have played " + count + " rounds of RPS.");
+  }
 }
-// Computer's selection
-function computerSelection(){
-  console.log("The computer selected: " + randomItem);
-}
-// Calling the selection functions
-playerSelection()
-computerSelection()
-// Logging the number of rounds that have been played.
-console.log("You have played " + count + " rounds of RPS.")
 
 </script>
 
