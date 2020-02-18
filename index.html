@@ -6,33 +6,58 @@
 <body>
 
 <script type="text/javascript">
-// Tracker to count number of rounds played.
-//count = 0
+// Game Intro
 //alert("Welcome to Rock, Paper, Scissors! Be sure to open the Dev Console to see results.")
-
+// Scorekeeper:
+playerScore = 0
+computerScore = 0
+totalScore = 0
+// Declaring the global variable:
+playerChoice = ''
+// Game Loop
 for (count = 1; count < 6; count++) {
   // List of options for the computer
   var selectionList = ["Rock", "Paper", "Scissors"]
   // Randomizing the computer's selections
-  var randomItem = selectionList[Math.floor(Math.random()*selectionList.length)];
+  var computerChoice = selectionList[Math.floor(Math.random()*selectionList.length)];
   // Player's selection
   function playerSelection(){
-    var choice = prompt("Do you select rock, paper, or scissors?")
-    console.log("You have selected: " + choice.toLowerCase());
-    //count += 1
+    playerChoice = prompt("Do you select rock, paper, or scissors?")
+    console.log("You have selected: " + playerChoice.toLowerCase());
   }
   // Computer's selection
   function computerSelection(){
-    console.log("The computer selected: " + randomItem.toLowerCase());
+    console.log("The computer selected: " + computerChoice.toLowerCase());
   }
   // Calling the selection functions
   playerSelection()
   computerSelection()
+  // --- Logging score ---
+  // Rock loses to Paper
+  if ((playerChoice.toLowerCase() == "rock") && (computerChoice.toLowerCase() == "paper")) {
+    computerScore += 1
+    console.log("Sorry, paper covers rock. The computer gained 1 point and now has a total score of: " + computerScore);
+    // Paper loses to Scissors
+  } else if ((playerChoice.toLowerCase() == "paper") && (computerChoice.toLowerCase() == "scissors")) {
+    computerScore += 1
+    console.log("Scissors cut through paper. The computer gained 1 point and now has a total score of: " + computerScore);
+  }  // Scissors cut Paper
+    else if ((playerChoice.toLowerCase() == "scissors") && (computerChoice.toLowerCase() == "paper")) {
+    playerScore += 1
+    console.log("You win! Scissors cut through paper. You gained 1 point and now have a total score of: " + playerScore);
+   }  // Rock smashes Scissors
+    else if ((playerChoice.toLowerCase() == "rock") && (computerChoice.toLowerCase() == "scissors")) {
+    playerScore += 1
+    console.log("You win! Rock smashes scissors. You gained 1 point and now have a total score of: " + playerScore);
+    // Exceptions
+  } else {
+    console.log("test")
+  }
   // Logging the number of rounds that have been played.
   if (count == 1) {
-    console.log("You have played " + count + " round of RPS.");
+    console.log("You have played " + count + " round of RPS out of 5.");
   } else {
-    console.log("You have played " + count + " rounds of RPS.");
+    console.log("You have played " + count + " rounds of RPS out of 5.");
   }
 }
 
