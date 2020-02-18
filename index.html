@@ -5,10 +5,52 @@
 </head>
 <body>
 
-<script type="text/javascript"></script>
+<script type="text/javascript">
+// Tracker to count number of rounds played.
+count = 0
+//alert("Welcome to Rock, Paper, Scissors! Be sure to open the Dev Console to see results.")
+
+// List of options for the computer
+var selectionList = ["Rock", "Paper", "Scissors"]
+// Randomizing the computer's selections
+var randomItem = selectionList[Math.floor(Math.random()*selectionList.length)];
+// Player's selection
+function playerSelection(){
+  var choice = prompt("Do you select rock, paper, or scissors?")
+  console.log("You have selected " + choice);
+  count += 1
+}
+// Computer's selection
+function computerSelection(){
+  console.log("The computer selected: " + randomItem);
+}
+// Calling the selection functions
+playerSelection()
+computerSelection()
+// Logging the number of rounds that have been played.
+console.log("You have played " + count + " rounds of RPS.")
+
+</script>
 
 </body>
 </html>
+
+
+<!-- ---- PSEUDOCODE ----
+
+1. Welcome message welcoming the user to the RPS game
+2. Tell the user the rules.
+3. Prompt the user for a selection of r, p, or s.
+  a. This should be case insensitive
+4. The program then randomly makes a selection for the computer.
+5. Compare the user's selection with the computer's selection.
+6. If the player's selection is greater than computer's selection, alert the player that they've won
+7. Else alert the player that the computer has won.
+8. Increase the count (i.e. game count) by 1 from 0.
+9. If count < 5, loop through the code again.. including the user selection prompt.
+10. If count == 5, alert the user that the game is over.
+
+-->
 
 <!-- ---- PROJECT PARAMETERS ----
 
@@ -43,20 +85,6 @@ e. Feel free to create more 'helper' functions if you think it would be useful.
 -->
 
 
-<!-- ---- PSEUDOCODE ----
-
-1. Welcome message welcoming the user to the RPS game
-2. Tell the user the rules.
-3. Prompt the user for a selection of r, p, or s.
-4. The program then randomly makes a selection for the computer.
-5. Compare the user's selection with the computer's selection.
-6. If the player's selection is greater than computer's selection, alert the player that they've won
-7. Else alert the player that the computer has won.
-8. Increase the count (i.e. game count) by 1 from 0.
-9. If count < 5, loop through the code again.. including the user selection prompt.
-10. If count == 5, alert the user that the game is over.
-
--->
 
 
 
