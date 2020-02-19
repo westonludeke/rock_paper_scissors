@@ -23,6 +23,7 @@ for (count = 1; count < 6; count++) {
   // Player's selection
   function playerSelection(){
     playerChoice = prompt("Do you select rock, paper, or scissors?")
+    console.log("-----------------")
     console.log("You have selected: " + playerChoice.toLowerCase());
   }
   // Computer's selection
@@ -49,15 +50,26 @@ for (count = 1; count < 6; count++) {
     else if ((playerChoice.toLowerCase() == "rock") && (computerChoice.toLowerCase() == "scissors")) {
     playerScore += 1
     console.log("You win! Rock smashes scissors. You gained 1 point and now have a total score of: " + playerScore);
+  }  // Paper covers Rock
+    else if ((playerChoice.toLowerCase() == "paper") && (computerChoice.toLowerCase() == "rock")) {
+    playerScore += 1
+    console.log("You win! Paper covers rock. You gained 1 point and now have a total score of: " + playerScore);
+  }  // Scissors get smashes by Rock
+    else if ((playerChoice.toLowerCase() == "scissors") && (computerChoice.toLowerCase() == "rock")) {
+    playerScore += 1
+    console.log("Sorry, rock smashes scissors. Computer adds one point for a total score of: " + computerScore);
+    }  // Tie-Game
+    else if (playerChoice.toLowerCase() == computerChoice.toLowerCase()) {
+    console.log("It's a draw! The score doesn't change");
     // Exceptions
   } else {
-    console.log("test")
+    console.log("Invalid!")
   }
   // Logging the number of rounds that have been played.
   if (count == 1) {
-    console.log("You have played " + count + " round of RPS out of 5.");
+    console.log("You have played " + count + " round of RPS out of 5. The score is now: " + playerScore + " to " + computerScore);
   } else {
-    console.log("You have played " + count + " rounds of RPS out of 5.");
+    console.log("You have played " + count + " rounds of RPS out of 5. The score is now: " + playerScore + " to " + computerScore);
   }
 }
 
